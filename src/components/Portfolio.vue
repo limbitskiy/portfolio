@@ -528,12 +528,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { useWindowSize } from "@vueuse/core";
-import { getIcon } from "@/utils";
 import IconLink from "@/components/UI/IconLink.vue";
 import { useTimeSince } from "@/composables/useTimeSince";
 
