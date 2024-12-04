@@ -2,17 +2,17 @@
   <div class="container">
     <!-- mobile version -->
     <section v-if="screenWidth <= 1024" class="intro">
-      <h1 class="title font-[900] my-[3dvh] text-center" style="font-size: clamp(40px, 10vw, 107px); line-height: 11vw">{{ introLines[0] }}</h1>
+      <h1 class="title font-[900] my-[3dvh] text-center" style="font-size: clamp(40px, 10vw, 107px); line-height: 11vw">{{ greetingString }}</h1>
       <div class="flex flex-col px-4">
         <div class="intro-text flex flex-col gap-[2dvh]" style="font-size: clamp(18px, 5vw, 30px)">
-          <span>{{ introLines[1] }}</span>
+          <span>{{ introLines[0] }}</span>
           <div class="intro-photo -mx-4">
             <img class="h-[50dvh] w-full object-cover" src="/avatar.webp" />
           </div>
           <span>Занимаюсь front-end разработкой приблизительно {{ timeSince }}</span>
-          <span>{{ introLines[2] }}</span>
+          <span>{{ introLines[1] }}</span>
           <div class="stack flex gap-x-2 gap-y-0 flex-wrap">
-            <span>{{ introLines[3] }}</span>
+            <span>{{ introLines[2] }}</span>
             <IconText icon="ts" text="TS," />
             <IconText icon="vue" text="Vue 3," />
             <IconText icon="pinia" text="Pinia," />
@@ -25,14 +25,14 @@
 
     <!-- display version -->
     <section v-else class="intro">
-      <h1 class="title font-[900] my-[6dvh] leading-[100px] px-4" style="font-size: clamp(40px, 10vw, 107px)">{{ introLines[0] }}</h1>
+      <h1 class="title font-[900] my-[6dvh] leading-[100px] px-4" style="font-size: clamp(40px, 10vw, 107px)">{{ greetingString }}</h1>
       <div class="grid-two grid grid-cols-2 gap-4 px-4">
         <div class="intro-text flex flex-col gap-[3dvh]" style="font-size: clamp(18px, 5vw, 30px)">
-          <span>{{ introLines[1] }}</span>
+          <span>{{ introLines[0] }}</span>
           <span>Занимаюсь front-end разработкой приблизительно {{ timeSince }}</span>
-          <span>{{ introLines[2] }}</span>
+          <span>{{ introLines[1] }}</span>
           <div class="stack flex gap-x-2 gap-y-0 flex-wrap">
-            <span>{{ introLines[3] }}</span>
+            <span>{{ introLines[2] }}</span>
             <IconText icon="ts" text="TS," />
             <IconText icon="vue" text="Vue 3," />
             <IconText icon="pinia" text="Pinia," />
@@ -532,21 +532,20 @@ import { onMounted, onUnmounted, ref } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import { useWindowSize } from "@vueuse/core";
 import IconLink from "@/components/UI/IconLink.vue";
+
+// composables
+import { useWindowSize } from "@vueuse/core";
 import { useTimeSince } from "@/composables/useTimeSince";
+import { useDynamicGreeting } from "@/composables/useDynamicGreeting";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const { width: screenWidth, height: screenHeight } = useWindowSize();
+const { width: screenWidth } = useWindowSize();
 const { timeSince } = useTimeSince();
+const { greetingString } = useDynamicGreeting();
 
-const introLines = [
-  "Доброе время суток!",
-  "Меня зовут Гараган Евгений, мне 38 лет и я front-end разработчик.",
-  "Являюсь middle-разработчиком. Увлекаюсь дизайном.",
-  "Краткий стэк:",
-];
+const introLines = ["Меня зовут Гараган Евгений, мне 38 лет и я front-end разработчик.", "Являюсь middle-разработчиком. Увлекаюсь дизайном.", "Краткий стэк:"];
 
 const colors = ["#88ce71", "#3cbe84", "#00ab97", "#0096a3", "#007fa6", "#00679d"];
 
