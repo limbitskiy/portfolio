@@ -6,22 +6,34 @@
 </template>
 
 <script setup lang="ts">
+import ts from "@/assets/icons/ts.webp";
+import nuxt from "@/assets/icons/nuxt.webp";
+import pinia from "@/assets/icons/pinia.webp";
+import vitest from "@/assets/icons/vitest.webp";
+import vue from "@/assets/icons/vue.webp";
+import gitlab from "@/assets/icons/gitlab.webp";
+import tailwind from "@/assets/icons/tailwind.webp";
+import unirender from "@/assets/icons/unirender.webp";
+import quasar from "@/assets/icons/quasar.webp";
+import docker from "@/assets/icons/docker.webp";
+import mongo from "@/assets/icons/mongo.webp";
+
 defineProps<{
   icon: string;
   text: string;
 }>();
 
 const iconMap = {
-  ts: "/icons/ts.webp",
-  nuxt: "/icons/nuxt.webp",
-  pinia: "/icons/pinia.webp",
-  vitest: "/icons/vitest.webp",
-  vue: "/icons/vue.webp",
-  gitlab: "/icons/gitlab.webp",
-  tailwind: "/icons/tailwind.webp",
-  unirender: "/icons/unirender.webp",
-  quasar: "/icons/quasar.webp",
-  docker: "/icons/docker.webp",
-  mongo: "/icons/mongo.webp",
+  ts,
+  nuxt,
+  pinia,
+  vitest,
+  vue,
+  gitlab,
+  tailwind,
+  unirender,
+  quasar,
+  docker,
+  mongo,
 };
 </script>

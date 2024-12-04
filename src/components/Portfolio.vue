@@ -7,7 +7,7 @@
         <div class="intro-text flex flex-col gap-[2dvh]" style="font-size: clamp(18px, 5vw, 30px)">
           <span>{{ introLines[0] }}</span>
           <div class="intro-photo -mx-4">
-            <img class="h-[50dvh] w-full object-cover" src="/avatar.webp" />
+            <img class="h-[50dvh] w-full object-cover" :src="avatar" />
           </div>
           <span>Занимаюсь front-end разработкой приблизительно {{ timeSince }}</span>
           <span>{{ introLines[1] }}</span>
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="intro-photo">
-          <img class="h-[50dvh] m-auto object-cover" src="/avatar.webp" />
+          <img class="h-[50dvh] m-auto object-cover" :src="avatar" />
         </div>
       </div>
     </section>
@@ -54,25 +54,14 @@
       <Project id="unirender" :color="colors[0]" title="UniRender" :carouselSettings="{ groupsToShow: 1 }">
         <template #desc>
           <span
-            >Разработал собственную open-source js-библиотеку UniRender, которая представляет универсальный рендер для любого реактивного front-end: VUE,  React Native, React,
-            Angular и т.д. </span
+            >Разработал собственную open-source js-библиотеку UniRender, которая представляет универсальный рендер для любого реактивного front-end: VUE, React Native, React,
+            Angular и т.д.</span
           >
           <span>
-            Использование этой библиотеки позволяет сократить время и стоимость разработки проекта в 2+ раз за счет переноса всей бизнес-логики на бэкенд (BackEnd-driven подход).
-            Это убирает следующие задачи:</span
+            Использование этой библиотеки позволяет сократить время и стоимость разработки проекта в 2+ раз за счет переноса всей бизнес-логики на бэкенд (BackEnd-driven
+            подход).</span
           >
-          <ul>
-            <li>бизнес-логика на фронте</li>
-            <li>формирование API-запросов на фронте</li>
-            <li>обработка API-запросов на бэкенде</li>
-            <li>документирование API</li>
-            <li>тест-кейсы для API</li>
-            <li>внесение изменений во все эти шаги при изменении требований</li>
-          </ul>
-
-          <span
-            >С помощью UniRender уже реализовано 4 крупных проекта небольшими командами . Во всех проектах на скриншотах абсолютно идентичный код фронта и используемое API.</span
-          >
+          <span>С помощью UniRender уже реализовано 4 проекта. Во всех проектах на скриншотах абсолютно идентичный код фронта и используемый API.</span>
 
           <span
             >Адаптировал под UniRender более 120 VUE-компонентов. Подготовил документацию для быстрой адаптации любых компонентов различных фреймворков. При необходимости можно
@@ -98,22 +87,22 @@
         </template>
 
         <template #images>
-          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="/screenshots/unirender1.webp" />
-          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="/screenshots/unirender2.webp" />
-          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="/screenshots/unirender3.webp" />
-          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="/screenshots/unirender4.webp" />
+          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="@/assets/screenshots/unirender1.webp" />
+          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="@/assets/screenshots/unirender2.webp" />
+          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="@/assets/screenshots/unirender3.webp" />
+          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="@/assets/screenshots/unirender4.webp" />
         </template>
 
         <template #mobileImages>
-          <img class="screenshot mx-4 h-[30dvh] max-h-[400px] object-cover" src="/screenshots/unirender1.webp" />
-          <img class="screenshot mx-4 h-[30dvh] max-h-[400px] object-cover" src="/screenshots/unirender2.webp" />
-          <img class="screenshot mx-4 h-[30dvh] max-h-[400px] object-cover" src="/screenshots/unirender3.webp" />
-          <img class="screenshot mx-4 h-[30dvh] max-h-[400px] object-cover" src="/screenshots/unirender4.webp" />
+          <img class="screenshot mx-4 h-[30dvh] max-h-[400px] object-cover" src="@/assets/screenshots/unirender1.webp" />
+          <img class="screenshot mx-4 h-[30dvh] max-h-[400px] object-cover" src="@/assets/screenshots/unirender2.webp" />
+          <img class="screenshot mx-4 h-[30dvh] max-h-[400px] object-cover" src="@/assets/screenshots/unirender3.webp" />
+          <img class="screenshot mx-4 h-[30dvh] max-h-[400px] object-cover" src="@/assets/screenshots/unirender4.webp" />
         </template>
       </Project>
 
       <!-- tapsmart -->
-      <Project :color="colors[1]" title="TapSmart" subtitle="(Сентябрь 2024 - Декабрь 2024)">
+      <Project :color="colors[1]" title="TapSmart" subtitle="(Сентябрь 2024 - Декабрь 2024)">
         <template #desc>
           <span
             >Занимался дизайном и всем фронтом для Telegram mini app "TapSmart" (<a href="https://t.me/TapSmartBot/TapSmartGame" target="_blank">@TapSmart</a>). Приложение
@@ -145,32 +134,32 @@
         </template>
 
         <template #images>
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="/screenshots/tapsmart1.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="/screenshots/tapsmart2.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="/screenshots/tapsmart3.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="/screenshots/tapsmart4.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="/screenshots/tapsmart5.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="@/assets/screenshots/tapsmart1.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="@/assets/screenshots/tapsmart2.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="@/assets/screenshots/tapsmart3.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="@/assets/screenshots/tapsmart4.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain" src="@/assets/screenshots/tapsmart5.webp" />
         </template>
 
         <template #mobileImages>
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tapsmart1.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tapsmart2.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tapsmart3.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tapsmart4.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tapsmart5.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tapsmart1.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tapsmart2.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tapsmart3.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tapsmart4.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tapsmart5.webp" />
         </template>
       </Project>
 
       <!-- consul group -->
-      <Project :color="colors[2]" title="Counsul Group" subtitle="(Декабрь 2022 — Август 2024)" :carouselSettings="{ groupsToShow: 1 }">
+      <Project :color="colors[2]" title="Counsul Group" subtitle="(Декабрь 2022 — Август 2024)" :carouselSettings="{ groupsToShow: 1 }">
         <template #desc>
           <span
             >Разработка внутренней информационной системы для работы с 20+ миллионами объектов недвижимости, с быстрой фильтрацией по 100+ параметрам и с визуализацией объектов на
-            карте.Гибкая настройка отображения всех таблиц и форм. Конструктор отчетов, с выгрузкой в xlsx. Конструктор форм загрузки данных, с поддержкой множества шаблонов и
+            карте. Гибкая настройка отображения всех таблиц и форм. Конструктор отчетов, с выгрузкой в xlsx. Конструктор форм загрузки данных, с поддержкой множества шаблонов и
             конфигов.</span
           >
           <span class="inline"
-            >Система построена при помощи собственного backend-driven фреймворка <img class="inline-svg relative bottom-1 mr-1" src="/icons/ur.svg" /><a href="#unirender"
+            >Система построена при помощи собственного backend-driven фреймворка <img class="inline-svg relative bottom-1 mr-1" src="@/assets/icons/ur.svg" /><a href="#unirender"
               >Unirender</a
             >.</span
           >
@@ -204,24 +193,24 @@
         </template>
 
         <template #images>
-          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="/screenshots/consul1.webp" />
-          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="/screenshots/consul2.webp" />
-          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="/screenshots/consul3.webp" />
-          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="/screenshots/consul4.webp" />
-          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="/screenshots/consul5.webp" />
+          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="@/assets/screenshots/consul1.webp" />
+          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="@/assets/screenshots/consul2.webp" />
+          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="@/assets/screenshots/consul3.webp" />
+          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="@/assets/screenshots/consul4.webp" />
+          <img class="screenshot mx-4 h-[50dvh] max-h-[400px] object-contain" src="@/assets/screenshots/consul5.webp" />
         </template>
 
         <template #mobileImages>
-          <img class="screenshot mx-4 h-[30dvh] object-cover" src="/screenshots/consul1.webp" />
-          <img class="screenshot mx-4 h-[30dvh] object-cover" src="/screenshots/consul2.webp" />
-          <img class="screenshot mx-4 h-[30dvh] object-cover" src="/screenshots/consul3.webp" />
-          <img class="screenshot mx-4 h-[30dvh] object-cover" src="/screenshots/consul4.webp" />
-          <img class="screenshot mx-4 h-[30dvh] object-cover" src="/screenshots/consul5.webp" />
+          <img class="screenshot mx-4 h-[30dvh] object-cover" src="@/assets/screenshots/consul1.webp" />
+          <img class="screenshot mx-4 h-[30dvh] object-cover" src="@/assets/screenshots/consul2.webp" />
+          <img class="screenshot mx-4 h-[30dvh] object-cover" src="@/assets/screenshots/consul3.webp" />
+          <img class="screenshot mx-4 h-[30dvh] object-cover" src="@/assets/screenshots/consul4.webp" />
+          <img class="screenshot mx-4 h-[30dvh] object-cover" src="@/assets/screenshots/consul5.webp" />
         </template>
       </Project>
 
       <!-- tokling -->
-      <Project :color="colors[3]" title="Tokling" subtitle="(Май 2022 — Ноябрь 2022)">
+      <Project :color="colors[3]" title="Tokling" subtitle="(Май 2022 — Ноябрь 2022)">
         <template #desc>
           <span
             >Мобильное веб-приложение для изучения 42-х языков в игровой форме с мультиплеером. <br />Разработал дизайн и всю фронтовую часть приложения. <br />Создал около 20
@@ -243,28 +232,28 @@
         </template>
 
         <template #images>
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="/screenshots/tokling1.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="/screenshots/tokling2.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="/screenshots/tokling3.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="/screenshots/tokling4.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="/screenshots/tokling5.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain mx-4" src="/screenshots/tokling6.webp" />
-          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="/screenshots/tokling7.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="@/assets/screenshots/tokling1.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="@/assets/screenshots/tokling2.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="@/assets/screenshots/tokling3.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="@/assets/screenshots/tokling4.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="@/assets/screenshots/tokling5.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain mx-4" src="@/assets/screenshots/tokling6.webp" />
+          <img class="screenshot h-[40dvh] max-h-[400px] object-contain border border-gray-200 mx-4" src="@/assets/screenshots/tokling7.webp" />
         </template>
 
         <template #mobileImages>
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tokling1.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tokling2.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tokling3.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tokling4.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tokling5.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tokling6.webp" />
-          <img class="screenshot h-[80dvh] object-contain" src="/screenshots/tokling7.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tokling1.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tokling2.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tokling3.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tokling4.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tokling5.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tokling6.webp" />
+          <img class="screenshot h-[80dvh] object-contain" src="@/assets/screenshots/tokling7.webp" />
         </template>
       </Project>
 
       <!-- sirius -->
-      <Project :color="colors[4]" title="Sirius Dev" subtitle="(Август 2020 — Март 2022)" :carouselSettings="{ groupsToShow: 1 }">
+      <Project :color="colors[4]" title="Sirius Dev" subtitle="(Август 2020 — Март 2022)" :carouselSettings="{ groupsToShow: 1 }">
         <template #desc>
           <span>Компания занимается как выпуском собственных проектов, так и аутстаффингом ИТ-разработчиков. В составе этой компании я работал над разными проектами.</span>
         </template>
@@ -321,7 +310,7 @@
         <template #images>
           <div class="screenshot mx-4 grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain h-[50dvh] max-h-[400px]" src="/screenshots/sirius1.webp" />
+              <img class="object-contain h-[50dvh] max-h-[400px]" src="@/assets/screenshots/sirius1.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Sirius Dev</span>
               </div>
@@ -329,7 +318,7 @@
           </div>
           <div class="screenshot mx-4 grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain h-[50dvh] max-h-[400px]" src="/screenshots/sirius2.webp" />
+              <img class="object-contain h-[50dvh] max-h-[400px]" src="@/assets/screenshots/sirius2.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">"Полимочевина"</span>
               </div>
@@ -337,7 +326,7 @@
           </div>
           <div class="screenshot mx-4 grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain h-[50dvh] max-h-[400px]" src="/screenshots/sirius3.webp" />
+              <img class="object-contain h-[50dvh] max-h-[400px]" src="@/assets/screenshots/sirius3.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Zuzu master</span>
               </div>
@@ -345,7 +334,7 @@
           </div>
           <div class="screenshot mx-4 grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain h-[50dvh] max-h-[400px]" src="/screenshots/sirius4.webp" />
+              <img class="object-contain h-[50dvh] max-h-[400px]" src="@/assets/screenshots/sirius4.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Калькулятор стоимости работ</span>
               </div>
@@ -356,7 +345,7 @@
         <template #mobileImages>
           <div class="screenshot mx-4 h-[30dvh] grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain" src="/screenshots/sirius1.webp" />
+              <img class="object-contain" src="@/assets/screenshots/sirius1.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Sirius Dev</span>
               </div>
@@ -364,7 +353,7 @@
           </div>
           <div class="screenshot mx-4 h-[30dvh] grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain" src="/screenshots/sirius2.webp" />
+              <img class="object-contain" src="@/assets/screenshots/sirius2.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">"Полимочевина"</span>
               </div>
@@ -372,7 +361,7 @@
           </div>
           <div class="screenshot mx-4 h-[30dvh] grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain" src="/screenshots/sirius3.webp" />
+              <img class="object-contain" src="@/assets/screenshots/sirius3.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Zuzu master</span>
               </div>
@@ -380,7 +369,7 @@
           </div>
           <div class="screenshot mx-4 h-[30dvh] grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain" src="/screenshots/sirius4.webp" />
+              <img class="object-contain" src="@/assets/screenshots/sirius4.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Калькулятор стоимости работ</span>
               </div>
@@ -456,7 +445,7 @@
         <template #images>
           <div class="screenshot mx-4 grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain h-[50dvh] max-h-[400px]" src="/screenshots/pet1.webp" />
+              <img class="object-contain h-[50dvh] max-h-[400px]" src="@/assets/screenshots/pet1.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Опрос</span>
               </div>
@@ -464,7 +453,7 @@
           </div>
           <div class="screenshot mx-4 grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain h-[50dvh] max-h-[400px]" src="/screenshots/pet2.webp" />
+              <img class="object-contain h-[50dvh] max-h-[400px]" src="@/assets/screenshots/pet2.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Календарь</span>
               </div>
@@ -472,7 +461,7 @@
           </div>
           <div class="screenshot mx-4 grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain h-[50dvh] max-h-[400px]" src="/screenshots/pet3.webp" />
+              <img class="object-contain h-[50dvh] max-h-[400px]" src="@/assets/screenshots/pet3.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Massive Dynamic</span>
               </div>
@@ -480,7 +469,7 @@
           </div>
           <div class="screenshot mx-4 grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain h-[50dvh] max-h-[400px]" src="/screenshots/pet4.webp" />
+              <img class="object-contain h-[50dvh] max-h-[400px]" src="@/assets/screenshots/pet4.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Todo app</span>
               </div>
@@ -491,7 +480,7 @@
         <template #mobileImages>
           <div class="screenshot mx-4 h-[80dvh] grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain" src="/screenshots/pet1.webp" />
+              <img class="object-contain" src="@/assets/screenshots/pet1.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Опрос</span>
               </div>
@@ -499,7 +488,7 @@
           </div>
           <div class="screenshot mx-4 h-[80dvh] grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain" src="/screenshots/pet2.webp" />
+              <img class="object-contain" src="@/assets/screenshots/pet2.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Календарь</span>
               </div>
@@ -507,7 +496,7 @@
           </div>
           <div class="screenshot mx-4 h-[80dvh] grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain" src="/screenshots/pet3.webp" />
+              <img class="object-contain" src="@/assets/screenshots/pet3.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Massive Dynamic</span>
               </div>
@@ -515,7 +504,7 @@
           </div>
           <div class="screenshot mx-4 h-[80dvh] grid place-items-center">
             <div class="image flex flex-col items-center">
-              <img class="object-contain" src="/screenshots/pet4.webp" />
+              <img class="object-contain" src="@/assets/screenshots/pet4.webp" />
               <div class="caption bg-[#333] w-full flex items-center justify-center">
                 <span class="text-sm text-white">Todo app</span>
               </div>
@@ -533,6 +522,9 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import IconLink from "@/components/UI/IconLink.vue";
+
+// assets
+import avatar from "@/assets/avatar.webp";
 
 // composables
 import { useWindowSize } from "@vueuse/core";

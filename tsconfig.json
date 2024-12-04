@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
+    "noEmitOnError": true,
+    "skipLibCheck": true,
     "target": "es2017",
     "module": "esnext",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
-    "moduleResolution": "node10",
+    "moduleResolution": "node",
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    },
-    "types": ["node"]
+    }
+    // "types": ["node"]
   }
 }

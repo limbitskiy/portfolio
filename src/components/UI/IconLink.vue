@@ -6,6 +6,10 @@
 </template>
 
 <script setup lang="ts">
+import linkIcon from "@/assets/icons/link.webp";
+import github from "@/assets/icons/github.webp";
+import gitlab from "@/assets/icons/gitlab.webp";
+
 defineProps<{
   icon: string;
   link: string;
@@ -14,8 +18,8 @@ defineProps<{
 }>();
 
 const iconMap = {
-  link: "/icons/link.webp",
-  github: "/icons/github.webp",
-  gitlab: "/icons/gitlab.webp",
+  link: linkIcon,
+  github,
+  gitlab,
 };
 </script>
