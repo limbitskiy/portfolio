@@ -6,11 +6,11 @@ export const useDynamicGreeting = () => {
   const clientTime = new Date();
   const hours = clientTime.getHours();
 
-  if (hours > 5 && hours < 12) {
+  if (hours >= 5 && hours < 12) {
     greetingString.value = "Доброе утро!";
-  } else if (hours > 12 && hours < 17) {
+  } else if (hours >= 12 && hours <= 17) {
     greetingString.value = "Добрый день!";
-  } else if (hours > 17 && hours < 22) {
+  } else if (hours > 17 && hours <= 22) {
     greetingString.value = "Добрый вечер!";
   } else {
     greetingString.value = "Доброй ночи!";

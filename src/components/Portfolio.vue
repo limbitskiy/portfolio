@@ -5,11 +5,13 @@
       <h1 class="title font-[900] my-[3dvh] text-center" style="font-size: clamp(40px, 10vw, 107px); line-height: 11vw">{{ greetingString }}</h1>
       <div class="flex flex-col px-4">
         <div class="intro-text flex flex-col gap-[2dvh]" style="font-size: clamp(18px, 5vw, 30px)">
-          <span>{{ introLines[0] }}</span>
+          <span v-html="introLines[0]"></span>
           <div class="intro-photo -mx-4">
             <img class="h-[50dvh] w-full object-cover" :src="avatar" />
           </div>
-          <span>Занимаюсь front-end разработкой приблизительно {{ timeSince }}</span>
+          <span
+            >Занимаюсь front-end разработкой приблизительно <b>{{ timeSince }}</b></span
+          >
           <span>{{ introLines[1] }}</span>
           <div class="stack flex gap-x-2 gap-y-0 flex-wrap">
             <span>{{ introLines[2] }}</span>
@@ -28,8 +30,10 @@
       <h1 class="title font-[900] my-[6dvh] leading-[100px] px-4" style="font-size: clamp(40px, 10vw, 107px)">{{ greetingString }}</h1>
       <div class="grid-two grid grid-cols-2 gap-4 px-4">
         <div class="intro-text flex flex-col gap-[3dvh]" style="font-size: clamp(18px, 5vw, 30px)">
-          <span>{{ introLines[0] }}</span>
-          <span>Занимаюсь front-end разработкой приблизительно {{ timeSince }}</span>
+          <span v-html="introLines[0]"></span>
+          <span
+            >Занимаюсь front-end разработкой приблизительно <b>{{ timeSince }}</b></span
+          >
           <span>{{ introLines[1] }}</span>
           <div class="stack flex gap-x-2 gap-y-0 flex-wrap">
             <span>{{ introLines[2] }}</span>
@@ -537,7 +541,7 @@ const { width: screenWidth } = useWindowSize();
 const { timeSince } = useTimeSince();
 const { greetingString } = useDynamicGreeting();
 
-const introLines = ["Меня зовут Гараган Евгений, мне 38 лет и я front-end разработчик.", "Являюсь middle-разработчиком. Увлекаюсь дизайном.", "Краткий стэк:"];
+const introLines = ["Меня зовут <b>Гараган Евгений</b>, мне <b>38 лет</b> и я <b>front-end разработчик</b>.", "Являюсь middle-разработчиком. Увлекаюсь дизайном.", "Краткий стэк:"];
 
 const colors = ["#88ce71", "#3cbe84", "#00ab97", "#0096a3", "#007fa6", "#00679d"];
 
