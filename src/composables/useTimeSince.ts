@@ -1,5 +1,6 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 
+// not used currently
 export const useTimeSince = () => {
   let interval: ReturnType<typeof setInterval>;
 

@@ -6,7 +6,7 @@
       <span style="font-size: clamp(14px, 3vw, 17px)">{{ subtitle }}</span>
     </div>
 
-    <div class="project-desc flex flex-col gap-[3dvh] my-[4dvh] px-4">
+    <div class="project-desc flex flex-col gap-[3dvh] my-[4dvh] px-4 overflow-hidden">
       <slot name="desc">Project description </slot>
     </div>
 
@@ -33,7 +33,7 @@
 
     <div ref="gridRef" class="grid-two grid grid-cols-[7fr_5fr] gap-[4vw]">
       <div class="project-left overflow-hidden">
-        <div class="project-desc flex flex-col gap-[3dvh] my-[4dvh] px-4">
+        <div class="project-desc flex flex-col gap-[3dvh] my-[4dvh] px-4 overflow-hidden">
           <slot name="desc">Project description </slot>
         </div>
 
@@ -77,6 +77,7 @@ const gridRef = ref();
 const rightRef = ref();
 
 const settings: Settings = {
+  arrows: false,
   dots: false,
   infinite: true,
   groupsToShow: 3,

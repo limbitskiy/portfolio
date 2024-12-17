@@ -26,7 +26,15 @@
     </section>
 
     <!-- display version -->
-    <section v-else class="intro">
+    <section v-else class="intro mt-0">
+      <div class="theme-switch-cnt flex justify-end p-4">
+        <button @click="onThemeChange">
+          <Transition name="icon-fade" mode="out-in">
+            <img v-if="isDarkTheme" class="h-12 saturate-50" :src="SunButton" />
+            <img v-else class="h-12" :src="MoonButton" />
+          </Transition>
+        </button>
+      </div>
       <h1 class="title font-[900] my-[6dvh] leading-[100px] px-4" style="font-size: clamp(40px, 10vw, 107px)">{{ greetingString }}</h1>
       <div class="grid-two grid grid-cols-2 gap-4 px-4">
         <div class="intro-text flex flex-col gap-[3dvh]" style="font-size: clamp(18px, 5vw, 30px)">
@@ -58,18 +66,13 @@
       <Project id="unirender" :color="colors[0]" title="UniRender" :carouselSettings="{ groupsToShow: 1 }">
         <template #desc>
           <span
-            >Разработал собственную open-source js-библиотеку UniRender, которая представляет универсальный рендер для любого реактивного front-end: VUE, React Native, React,
-            Angular и т.д.</span
+            >Разработал собственную open-source JS-библиотеку <b>Unirender</b>, которая отрисовывает страницу основываясь на конфиге с бэкенда ( backend-driven подход ). Библиотека
+            легко кастомизируется под требования заказчика.</span
           >
-          <span>
-            Использование этой библиотеки позволяет сократить время и стоимость разработки проекта в 2+ раз за счет переноса всей бизнес-логики на бэкенд (BackEnd-driven
-            подход).</span
-          >
-          <span>С помощью UniRender уже реализовано 4 проекта. Во всех проектах на скриншотах абсолютно идентичный код фронта и используемый API.</span>
-
+          <span> С помощью <b>Unirender</b> реализовано 4 проекта.</span>
           <span
-            >Адаптировал под UniRender более 120 VUE-компонентов. Подготовил документацию для быстрой адаптации любых компонентов различных фреймворков. При необходимости можно
-            кастомизировать библиотеку UniRender под требования заказчика.</span
+            >Адаптировал под <b>Unirender</b> более 120 компонентов <b>( Vue 3 + PrimeVue )</b>. Подготовил документацию для быстрой адаптации любых компонентов различных
+            фреймворков.</span
           >
         </template>
 
@@ -83,7 +86,7 @@
           </div>
           <div class="links flex flex-col gap-2">
             <IconLink icon="link" link="https://gitlab.com/unibackend-org" />
-            <span class="text-gray-500"
+            <span class="text-gray-500 text-[18px]"
               >разделен на два репозитория: <b>unirender-package</b> - это сам UniRender.<br />
               <b>unirender-app-vue</b> - компоненты на vue</span
             >
@@ -108,16 +111,22 @@
       <!-- tapsmart -->
       <Project :color="colors[1]" title="TapSmart" subtitle="(Сентябрь 2024 - Декабрь 2024)">
         <template #desc>
-          <span
-            >Занимался дизайном и всем фронтом для Telegram mini app "TapSmart" (<a href="https://t.me/TapSmartBot/TapSmartGame" target="_blank">@TapSmart</a>). Приложение
-            позволяет практиковать иностранные языки в игровой форме (5 разных механик), а также соревноваться в словарные баттлы с друзьями и другими пользователями.</span
-          >
           <span>
-            Поддержка 30+ лидербордов, есть формы для динамического размещения заданий и призов. Развитая реферальная программа. Генерация Telegram Stories с видеозаписью сыгранных
-            баттлов.</span
+            Работал над Telegram Mini App <a href="https://t.me/TapSmartBot/TapSmartGame" target="_blank">TapSmart</a>. Приложение позволяет практиковать иностранные языки в
+            игровой форме (5 разных механик), а также соревноваться в словарные баттлы с друзьями и другими пользователями. Поддержка лидербордов, есть формы для динамического
+            размещения заданий и призов. Развитая реферальная программа.</span
           >
+          <span>Генерация Telegram Stories с видеозаписью сыгранных баттлов. Быстрый запуск собственных кастомизированных мини-приложений на базе этой платформы.</span>
 
-          <span>Быстрый запуск собственных кастомизированных мини-приложений на базе этой платформы. </span>
+          <div class="task-list">
+            <span><b>Мои обязанности на проекте:</b></span>
+            <ul>
+              <li>создание дизайна</li>
+              <li>продумывание архитектуры и реализация фронта</li>
+              <li>написание тестов</li>
+              <li>тестирование приложения</li>
+            </ul>
+          </div>
         </template>
 
         <template #details>
@@ -129,6 +138,7 @@
               <IconText text="vue-router," />
               <IconText icon="ts" text="TS," />
               <IconText icon="tailwind" text="Tailwind" />
+              <IconText icon="vitest" text="Vitest" />
             </div>
           </div>
           <div class="links flex flex-col gap-2 overflow-hidden">
@@ -158,18 +168,36 @@
       <Project :color="colors[2]" title="Counsul Group" subtitle="(Декабрь 2022 — Август 2024)" :carouselSettings="{ groupsToShow: 1 }">
         <template #desc>
           <span
-            >Разработка внутренней информационной системы для работы с 20+ миллионами объектов недвижимости, с быстрой фильтрацией по 100+ параметрам и с визуализацией объектов на
-            карте. Гибкая настройка отображения всех таблиц и форм. Конструктор отчетов, с выгрузкой в xlsx. Конструктор форм загрузки данных, с поддержкой множества шаблонов и
-            конфигов.</span
+            >IT отдел в юридической фирме. Работали над <b>M3</b> - внутренней информационной системой для работы с 20+ миллионами объектов недвижимости, с быстрой фильтрацией по
+            100+ параметрам и с визуализацией объектов на карте. Гибкая настройка отображения всех таблиц и форм. Конструктор отчетов, с выгрузкой в xlsx. Конструктор форм загрузки
+            данных, с поддержкой множества шаблонов и конфигов.</span
           >
-          <span class="inline"
+          <span class="inline whitespace-nowrap"
             >Система построена при помощи собственного backend-driven фреймворка <img class="inline-svg relative bottom-1 mr-1" src="@/assets/icons/ur.svg" /><a href="#unirender"
               >Unirender</a
             >.</span
           >
+
+          <div class="task-list">
+            <span><b>Мои обязанности на проекте:</b></span>
+            <ul>
+              <li>разработка системы для отрисовки страницы по конфигу с бэка <b>(Unirender)</b></li>
+              <li>разработка необходимых UI компонентов на <b>Vue 3 и PrimeVue</b></li>
+              <li>тестирование системы</li>
+              <li>написание внутренней документации</li>
+            </ul>
+          </div>
         </template>
 
         <template #details>
+          <div class="stack flex flex-col gap-2">
+            <span class="font-bold">Стэк:</span>
+            <div class="stack-items flex flex-wrap gap-2">
+              <IconText icon="ts" text="TS," />
+              <IconText icon="vue" text="Vue 3" />
+            </div>
+          </div>
+
           <span>В процессе работы также были созданы:</span>
 
           <div class="details-projects flex flex-col gap-6">
@@ -217,9 +245,20 @@
       <Project :color="colors[3]" title="Tokling" subtitle="(Май 2022 — Ноябрь 2022)">
         <template #desc>
           <span
-            >Мобильное веб-приложение для изучения 42-х языков в игровой форме с мультиплеером. <br />Разработал дизайн и всю фронтовую часть приложения. <br />Создал около 20
-            компонентов для приложения. <br />По большей части пользовался библиотекой PrimeVue, но также создавал и самописные компоненты.</span
+            >Мобильное веб-приложение для изучения 42-х языков в игровой форме с мультиплеером. Ведение статистики в разных представлениях, запись реплея баттла, дружеские баттлы и
+            рейтинг, настройка баттлов по тематике.</span
           >
+          <div class="task-list">
+            <span><b>Мои обязанности на проекте:</b></span>
+            <ul>
+              <li>рисовал дизайн</li>
+              <li>адаптировал <b>Unirender</b> к новым требованиям</li>
+              <li>
+                писал новые и адаптировал уже готовые UI компоненты на <b><span class="whitespace-nowrap">Vue 3</span> и PrimeVue</b>
+              </li>
+              <li>тестировал приложение</li>
+            </ul>
+          </div>
         </template>
 
         <template #details>
@@ -521,7 +560,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -535,11 +574,22 @@ import { useWindowSize } from "@vueuse/core";
 import { useTimeSince } from "@/composables/useTimeSince";
 import { useDynamicGreeting } from "@/composables/useDynamicGreeting";
 
+import SunButton from "@/assets/sun-button.webp";
+import MoonButton from "@/assets/moon-button.webp";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const { width: screenWidth } = useWindowSize();
 const { timeSince } = useTimeSince();
 const { greetingString } = useDynamicGreeting();
+
+const emit = defineEmits<{
+  "theme-change": [];
+}>();
+
+defineProps<{
+  isDarkTheme: boolean;
+}>();
 
 const introLines = ["Меня зовут <b>Гараган Евгений</b>, мне <b>38 лет</b> и я <b>front-end разработчик</b>.", "Являюсь middle-разработчиком. Увлекаюсь дизайном.", "Краткий стэк:"];
 
@@ -547,20 +597,11 @@ const colors = ["#88ce71", "#3cbe84", "#00ab97", "#0096a3", "#007fa6", "#00679d"
 
 let gsapCtx;
 
-onMounted(() => {
-  const lenis = new Lenis({
-    duration: 2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  });
+const onThemeChange = () => {
+  emit("theme-change");
+};
 
-  function raf(time) {
-    lenis.raf(time);
-    ScrollTrigger.update();
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
-});
+onMounted(() => {});
 
 onUnmounted(() => {
   gsapCtx?.revert();
