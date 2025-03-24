@@ -1,10 +1,11 @@
 import { ref } from "vue";
 
-export const useDynamicGreeting = () => {
-  const greetingString = ref("Доброе время суток!");
+export const useDynamicGreeting = (hours: number) => {
+  const greetingString = ref("Здравствуйте!");
 
-  const clientTime = new Date();
-  const hours = clientTime.getHours();
+  if (typeof hours !== "number") {
+    return { greetingString };
+  }
 
   if (hours >= 5 && hours < 12) {
     greetingString.value = "Доброе утро!";

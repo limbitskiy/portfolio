@@ -11,4 +11,8 @@ export default defineConfig({
     },
   },
   base: "./",
+  test: {
+    globals: true,
+    environment: "happy-dom",
+  },
 });

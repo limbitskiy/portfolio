@@ -9,8 +9,8 @@
           <div class="intro-photo -mx-4">
             <img class="h-[50dvh] w-full object-cover" :src="avatar" />
           </div>
-          <span
-            >Занимаюсь front-end разработкой приблизительно <b>{{ timeSince }}</b></span
+          <span v-if="timeSinceString"
+            >Занимаюсь front-end разработкой приблизительно <b>{{ timeSinceString }}</b></span
           >
           <span>{{ introLines[1] }}</span>
           <div class="stack flex gap-x-2 gap-y-0 flex-wrap">
@@ -39,8 +39,8 @@
       <div class="grid-two grid grid-cols-2 gap-4 px-4">
         <div class="intro-text flex flex-col gap-[3dvh]" style="font-size: clamp(18px, 5vw, 30px)">
           <span v-html="introLines[0]"></span>
-          <span
-            >Занимаюсь front-end разработкой приблизительно <b>{{ timeSince }}</b></span
+          <span v-if="timeSinceString"
+            >Занимаюсь front-end разработкой приблизительно <b>{{ timeSinceString }}</b></span
           >
           <span>{{ introLines[1] }}</span>
           <div class="stack flex gap-x-2 gap-y-0 flex-wrap">
@@ -571,8 +571,8 @@ import avatar from "@/assets/avatar.webp";
 
 // composables
 import { useWindowSize } from "@vueuse/core";
-import { useTimeSince } from "@/composables/useTimeSince";
 import { useDynamicGreeting } from "@/composables/useDynamicGreeting";
+import { timeSince } from "@/utils/timeSince";
 
 import SunButton from "@/assets/sun-button.webp";
 import MoonButton from "@/assets/moon-button.webp";
@@ -580,8 +580,11 @@ import MoonButton from "@/assets/moon-button.webp";
 gsap.registerPlugin(ScrollTrigger);
 
 const { width: screenWidth } = useWindowSize();
-const { timeSince } = useTimeSince();
-const { greetingString } = useDynamicGreeting();
+const currentHours = new Date().getHours();
+const { greetingString } = useDynamicGreeting(currentHours);
+
+const timeSinceString = ref("");
+let timeSinceInterval: ReturnType<typeof setInterval>;
 
 const emit = defineEmits<{
   "theme-change": [];
@@ -601,9 +604,16 @@ const onThemeChange = () => {
   emit("theme-change");
 };
 
-onMounted(() => {});
+onMounted(() => {
+  timeSinceString.value = timeSince(Date.now());
+
+  timeSinceInterval = setInterval(() => {
+    timeSinceString.value = timeSince(Date.now());
+  }, 1000);
+});
 
 onUnmounted(() => {
   gsapCtx?.revert();
+  clearInterval(timeSinceInterval);
 });
 </script>

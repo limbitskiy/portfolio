@@ -57,7 +57,7 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from "vue";
-import { useWindowSize } from "@vueuse/core";
+import { useWindowSize, useThrottleFn } from "@vueuse/core";
 
 // carousel
 import "v-slick-carousel/style.css";
@@ -97,7 +97,7 @@ const mobileSettings: Settings = {
   ...props.carouselSettings,
 };
 
-const resizeGrid = () => {
+function resizeGrid() {
   const gridRect = gridRef.value?.getBoundingClientRect();
 
   if (!gridRect) return;
@@ -106,15 +106,17 @@ const resizeGrid = () => {
   console.log("resized grid");
 
   rightRef.value.style.width = fifth + "px";
-};
+}
+
+const throttledFn = useThrottleFn(resizeGrid, 1000);
 
 onMounted(() => {
   resizeGrid();
 
-  addEventListener("resize", resizeGrid);
+  addEventListener("resize", throttledFn);
 });
 
 onUnmounted(() => {
-  removeEventListener("resize", resizeGrid);
+  removeEventListener("resize", throttledFn);
 });
 </script>
