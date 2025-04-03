@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container z-10 relative">
     <!-- mobile version -->
     <section v-if="screenWidth <= 1024" class="intro">
       <h1 class="title font-[900] my-[3dvh] text-center" style="font-size: clamp(40px, 10vw, 107px); line-height: 11vw">{{ greetingString }}</h1>
@@ -27,14 +27,6 @@
 
     <!-- display version -->
     <section v-else class="intro mt-0">
-      <div class="theme-switch-cnt flex justify-end p-4">
-        <button @click="onThemeChange">
-          <Transition name="icon-fade" mode="out-in">
-            <img v-if="isDarkTheme" class="h-12 saturate-50" :src="SunButton" />
-            <img v-else class="h-12" :src="MoonButton" />
-          </Transition>
-        </button>
-      </div>
       <h1 class="title font-[900] my-[6dvh] leading-[100px] px-4" style="font-size: clamp(40px, 10vw, 107px)">{{ greetingString }}</h1>
       <div class="grid-two grid grid-cols-2 gap-4 px-4">
         <div class="intro-text flex flex-col gap-[3dvh]" style="font-size: clamp(18px, 5vw, 30px)">
@@ -574,9 +566,6 @@ import { useWindowSize } from "@vueuse/core";
 import { useDynamicGreeting } from "@/composables/useDynamicGreeting";
 import { timeSince } from "@/utils/timeSince";
 
-import SunButton from "@/assets/sun-button.webp";
-import MoonButton from "@/assets/moon-button.webp";
-
 gsap.registerPlugin(ScrollTrigger);
 
 const { width: screenWidth } = useWindowSize();
@@ -586,23 +575,11 @@ const { greetingString } = useDynamicGreeting(currentHours);
 const timeSinceString = ref("");
 let timeSinceInterval: ReturnType<typeof setInterval>;
 
-const emit = defineEmits<{
-  "theme-change": [];
-}>();
-
-defineProps<{
-  isDarkTheme: boolean;
-}>();
-
 const introLines = ["Меня зовут <b>Гараган Евгений</b>, мне <b>38 лет</b> и я <b>front-end разработчик</b>.", "Являюсь middle-разработчиком. Увлекаюсь дизайном.", "Краткий стэк:"];
 
 const colors = ["#88ce71", "#3cbe84", "#00ab97", "#0096a3", "#007fa6", "#00679d"];
 
 let gsapCtx;
-
-const onThemeChange = () => {
-  emit("theme-change");
-};
 
 onMounted(() => {
   timeSinceString.value = timeSince(Date.now());

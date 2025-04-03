@@ -3,7 +3,6 @@ import "./style.scss";
 import App from "./App.vue";
 
 // components
-import Loader from "@/components/Loader.vue";
 import Portfolio from "@/components/Portfolio.vue";
 import Project from "@/components/Project.vue";
 import IconText from "@/components/UI/IconText.vue";
@@ -11,7 +10,6 @@ import IconLink from "@/components/UI/IconLink.vue";
 
 const app = createApp(App);
 
-app.component("Loader", Loader);
 app.component("Portfolio", Portfolio);
 app.component("Project", Project);
 app.component("IconText", IconText);

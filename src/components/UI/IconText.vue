@@ -1,7 +1,7 @@
 <template>
   <div class="icon-text flex gap-1 items-center">
-    <img v-if="icon" class="w-[25px] h-[25px]" :src="iconMap[icon]" />
-    <span>{{ text }}</span>
+    <img v-if="icon" class="w-[25px] h-[25px]" :src="iconMap[icon] ?? unknown" data-test="icontext-icon" />
+    <span data-test="icontext-text">{{ text }}</span>
   </div>
 </template>
 
@@ -17,6 +17,7 @@ import unirender from "@/assets/icons/unirender.webp";
 import quasar from "@/assets/icons/quasar.webp";
 import docker from "@/assets/icons/docker.webp";
 import mongo from "@/assets/icons/mongo.webp";
+import unknown from "@/assets/icons/unknown.webp";
 
 defineProps<{
   icon: string;

@@ -3,6 +3,7 @@
 **Stack**:
 
 - Vue 3
+- Vitest
 - tailwind
 - gsap
 - lenis

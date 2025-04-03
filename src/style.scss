@@ -21,11 +21,9 @@
   --dark-black: #313131;
 }
 
-body {
-  min-width: 320px;
-  min-height: 100vh;
-
-  &.dark-theme {
+html {
+  transition: background-color 0.5s ease;
+  &.dark {
     b {
       color: white;
     }
@@ -40,6 +38,11 @@ body {
       @apply bg-[var(--dark-black)];
     }
   }
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 section {
@@ -83,12 +86,24 @@ ul {
   opacity: 0;
 }
 
-.icon-fade-enter-active,
-.icon-fade-leave-active {
-  transition: opacity 0.2s ease;
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: 0.5s ease;
 }
 
-.icon-fade-enter-from,
-.icon-fade-leave-to {
+.slide-up-enter-from,
+.slide-up-leave-to {
   opacity: 0;
+  transform: translateY(10px);
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: 0.2s ease;
+}
+
+.slide-right-enter-from,
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(10px);
 }
