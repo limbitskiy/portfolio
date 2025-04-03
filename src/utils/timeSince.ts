@@ -5,7 +5,9 @@ const msInHour = 3600000;
 const msInMinute = 60000;
 const msInSecond = 1000;
 
-export function timeSince(dateNumber: number) {
+export function timeSince(dateNumber: number | string) {
+  if (typeof dateNumber != "number") return;
+
   const startDate = new Date(2020, 7, 6);
   const totalMsPassed = dateNumber - +startDate;
 

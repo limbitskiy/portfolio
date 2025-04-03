@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-export const useDynamicGreeting = (hours: number) => {
+export const useDynamicGreeting = (hours: number | string) => {
   const greetingString = ref("Здравствуйте!");
 
   if (typeof hours !== "number") {
